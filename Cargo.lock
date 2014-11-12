@@ -1,0 +1,79 @@
+[root]
+name = "pgsql-hal"
+version = "0.1.0"
+dependencies = [
+ "hal-rs 0.0.1 (git+https://github.com/hjr3/hal-rs.git)",
+ "postgres 0.0.0 (git+https://github.com/sfackler/rust-postgres.git)",
+]
+
+[[package]]
+name = "hal-rs"
+version = "0.0.1"
+source = "git+https://github.com/hjr3/hal-rs.git#96499c955e661211465c6c99d8ceb6a9df4ed700"
+
+[[package]]
+name = "libressl-pnacl-sys"
+version = "2.0.0"
+source = "git+https://github.com/DiamondLovesYou/libressl-pnacl-sys.git#24b6800971587e8881215d9398b180c0a79739dc"
+dependencies = [
+ "pnacl-build-helper 0.0.1 (git+https://github.com/DiamondLovesYou/cargo-pnacl-helper.git)",
+]
+
+[[package]]
+name = "openssl"
+version = "0.0.1"
+source = "git+https://github.com/sfackler/rust-openssl#1f1c30dd3a577b301bb85bf95f964227f84d73fd"
+dependencies = [
+ "libressl-pnacl-sys 2.0.0 (git+https://github.com/DiamondLovesYou/libressl-pnacl-sys.git)",
+ "openssl-sys 0.0.1 (git+https://github.com/alexcrichton/openssl-sys)",
+]
+
+[[package]]
+name = "openssl-sys"
+version = "0.0.1"
+source = "git+https://github.com/alexcrichton/openssl-sys#d66fe8400ab3cbb79ed405e26ae19c0d0cc20931"
+dependencies = [
+ "pkg-config 0.0.1 (git+https://github.com/alexcrichton/pkg-config-rs)",
+]
+
+[[package]]
+name = "phf"
+version = "0.0.0"
+source = "git+https://github.com/sfackler/rust-phf#18a5ecc028055c3dbd650cc5a064b6fb033d82ef"
+dependencies = [
+ "xxhash 0.0.1 (git+https://github.com/Jurily/rust-xxhash)",
+]
+
+[[package]]
+name = "phf_mac"
+version = "0.0.0"
+source = "git+https://github.com/sfackler/rust-phf#18a5ecc028055c3dbd650cc5a064b6fb033d82ef"
+dependencies = [
+ "xxhash 0.0.1 (git+https://github.com/Jurily/rust-xxhash)",
+]
+
+[[package]]
+name = "pkg-config"
+version = "0.0.1"
+source = "git+https://github.com/alexcrichton/pkg-config-rs#d24a08d87d63df8dc9526c503944415b86719220"
+
+[[package]]
+name = "pnacl-build-helper"
+version = "0.0.1"
+source = "git+https://github.com/DiamondLovesYou/cargo-pnacl-helper.git#1926cf56ce342af862faa9691e1ca63d3c8f4ba5"
+
+[[package]]
+name = "postgres"
+version = "0.0.0"
+source = "git+https://github.com/sfackler/rust-postgres.git#24edc6485f78ffd7b4c4be24f7a8d7e860eaa7cc"
+dependencies = [
+ "openssl 0.0.1 (git+https://github.com/sfackler/rust-openssl)",
+ "phf 0.0.0 (git+https://github.com/sfackler/rust-phf)",
+ "phf_mac 0.0.0 (git+https://github.com/sfackler/rust-phf)",
+]
+
+[[package]]
+name = "xxhash"
+version = "0.0.1"
+source = "git+https://github.com/Jurily/rust-xxhash#7e4174e780af0cfb29a5e53ede0b987adca16396"
+

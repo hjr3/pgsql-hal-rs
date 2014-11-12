@@ -1,0 +1,17 @@
+[package]
+
+name = "pgsql-hal"
+version = "0.1.0"
+authors = [ "Herman J. Radtke III <herman@hermanradtke.com>" ]
+
+[lib]
+
+name = "pgsql_hal"
+
+[dependencies.hal-rs]
+
+git = "https://github.com/hjr3/hal-rs.git"
+
+[dependencies.postgres]
+
+git = "https://github.com/sfackler/rust-postgres.git"
