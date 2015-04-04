@@ -3,77 +3,152 @@ name = "pgsql-hal"
 version = "0.1.0"
 dependencies = [
  "hal-rs 0.0.1 (git+https://github.com/hjr3/hal-rs.git)",
- "postgres 0.0.0 (git+https://github.com/sfackler/rust-postgres.git)",
+ "postgres 0.8.2 (git+https://github.com/sfackler/rust-postgres.git)",
 ]
+
+[[package]]
+name = "bitflags"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "byteorder"
+version = "0.3.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "debug-builders"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "gcc"
+version = "0.3.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "hal-rs"
 version = "0.0.1"
-source = "git+https://github.com/hjr3/hal-rs.git#96499c955e661211465c6c99d8ceb6a9df4ed700"
+source = "git+https://github.com/hjr3/hal-rs.git#8f3fe486dcbdefac3b7f7c49ebb4a548b3a3799b"
+dependencies = [
+ "rustc-serialize 0.3.12 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "lazy_static"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "libc"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "libressl-pnacl-sys"
-version = "2.0.0"
-source = "git+https://github.com/DiamondLovesYou/libressl-pnacl-sys.git#24b6800971587e8881215d9398b180c0a79739dc"
+version = "2.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "pnacl-build-helper 0.0.1 (git+https://github.com/DiamondLovesYou/cargo-pnacl-helper.git)",
+ "pnacl-build-helper 1.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "log"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "openssl"
-version = "0.0.1"
-source = "git+https://github.com/sfackler/rust-openssl#1f1c30dd3a577b301bb85bf95f964227f84d73fd"
+version = "0.5.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "libressl-pnacl-sys 2.0.0 (git+https://github.com/DiamondLovesYou/libressl-pnacl-sys.git)",
- "openssl-sys 0.0.1 (git+https://github.com/alexcrichton/openssl-sys)",
+ "bitflags 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "lazy_static 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.1.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "openssl-sys 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "openssl-sys"
-version = "0.0.1"
-source = "git+https://github.com/alexcrichton/openssl-sys#d66fe8400ab3cbb79ed405e26ae19c0d0cc20931"
+version = "0.5.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "pkg-config 0.0.1 (git+https://github.com/alexcrichton/pkg-config-rs)",
+ "gcc 0.3.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.1.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libressl-pnacl-sys 2.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pkg-config 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "phf"
-version = "0.0.0"
-source = "git+https://github.com/sfackler/rust-phf#18a5ecc028055c3dbd650cc5a064b6fb033d82ef"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "xxhash 0.0.1 (git+https://github.com/Jurily/rust-xxhash)",
+ "debug-builders 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "phf_shared 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
-name = "phf_mac"
-version = "0.0.0"
-source = "git+https://github.com/sfackler/rust-phf#18a5ecc028055c3dbd650cc5a064b6fb033d82ef"
+name = "phf_codegen"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "xxhash 0.0.1 (git+https://github.com/Jurily/rust-xxhash)",
+ "phf_generator 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "phf_shared 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "phf_generator"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "phf_shared 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rand 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "phf_shared"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "pkg-config"
-version = "0.0.1"
-source = "git+https://github.com/alexcrichton/pkg-config-rs#d24a08d87d63df8dc9526c503944415b86719220"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "pnacl-build-helper"
-version = "0.0.1"
-source = "git+https://github.com/DiamondLovesYou/cargo-pnacl-helper.git#1926cf56ce342af862faa9691e1ca63d3c8f4ba5"
+version = "1.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "postgres"
-version = "0.0.0"
-source = "git+https://github.com/sfackler/rust-postgres.git#24edc6485f78ffd7b4c4be24f7a8d7e860eaa7cc"
+version = "0.8.2"
+source = "git+https://github.com/sfackler/rust-postgres.git#d591470eadffd1245f6acb1bd197862790d65a55"
 dependencies = [
- "openssl 0.0.1 (git+https://github.com/sfackler/rust-openssl)",
- "phf 0.0.0 (git+https://github.com/sfackler/rust-phf)",
- "phf_mac 0.0.0 (git+https://github.com/sfackler/rust-phf)",
+ "byteorder 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "debug-builders 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "openssl 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "phf 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "phf_codegen 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.12 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
-name = "xxhash"
-version = "0.0.1"
-source = "git+https://github.com/Jurily/rust-xxhash#7e4174e780af0cfb29a5e53ede0b987adca16396"
+name = "rand"
+version = "0.3.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rustc-serialize"
+version = "0.3.12"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 

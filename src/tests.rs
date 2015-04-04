@@ -2,14 +2,14 @@ extern crate hal;
 extern crate postgres;
 
 use hal::Resource;
-use postgres::{Connection, NoSsl};
-use std::os;
+use postgres::{Connection, SslMode};
+use std::env;
 use super::PgsqlHal;
 
 fn get_option(key: &str, default: &str) -> String {
-    match os::getenv(key) {
-        Some(val) => val,
-        None => String::from_str(default)
+    match env::var(key) {
+        Ok(val) => val.parse().unwrap(),
+        Err(..) => default.to_string()
     }
 }
 
@@ -22,7 +22,7 @@ fn connect() -> Connection {
 
     let dsn = format!("postgres://{}:{}@{}:{}/{}", user, password, host,
                       port, dbname);
-    Connection::connect(dsn.as_slice(), &NoSsl).unwrap()
+    Connection::connect(dsn.as_ref(), &SslMode::None).unwrap()
 }
 
 #[test]
@@ -32,17 +32,17 @@ fn test_row_to_hal() {
     let conn = connect();
     let stmt = conn.prepare("SELECT 1::int as id, 'Jane Doe'::varchar as name").unwrap();
 
-    let mut rows = match stmt.query([]) {
+    let rows = match stmt.query(&[]) {
         Ok(rows) => rows,
         Err(err) => panic!("error running query: {}", err)
     };
 
-    let row = match rows.next() {
+    let row = match rows.iter().next() {
         Some(row) => row,
         None => panic!("no row found")
     };
 
-    let expected = match PgsqlHal::row_to_hal(stmt.result_descriptions(), &row) {
+    let expected = match PgsqlHal::row_to_hal(stmt.columns(), &row) {
         PgsqlHal(resource) => resource
     };
     let given = Resource::new()
