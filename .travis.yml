@@ -5,3 +5,9 @@ rust:
   - 1.0.0-beta
 
 sudo: false
+
+before_script:
+  - psql -c 'create database myapp;' -U postgres
+  - export DBUSER=postgres
+  - export DBPASS=
+  - export DBPORT=5432
