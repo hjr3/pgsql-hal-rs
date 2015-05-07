@@ -1,10 +1,11 @@
 extern crate hal;
 extern crate postgres;
+extern crate pgsql_hal;
 
-use hal::Resource;
+use hal::resource::Resource;
 use postgres::{Connection, SslMode};
 use std::env;
-use super::PgsqlHal;
+use pgsql_hal::pgsql_row_to_hal;
 
 fn get_option(key: &str, default: &str) -> String {
     match env::var(key) {
@@ -42,11 +43,10 @@ fn test_row_to_hal() {
         None => panic!("no row found")
     };
 
-    let expected = match PgsqlHal::row_to_hal(stmt.columns(), &row) {
-        PgsqlHal(resource) => resource
-    };
-    let given = Resource::new()
-        .add_state("id", 1i64)
+    let expected = pgsql_row_to_hal(stmt.columns(), &row);
+
+    let mut given = Resource::new();
+    given.add_state("id", 1i64)
         .add_state("name", "Jane Doe");
 
     assert_eq!(given, expected);

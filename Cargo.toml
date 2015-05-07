@@ -8,10 +8,7 @@ authors = [ "Herman J. Radtke III <herman@hermanradtke.com>" ]
 
 name = "pgsql_hal"
 
-[dependencies.hal-rs]
+[dependencies]
 
-git = "https://github.com/hjr3/hal-rs.git"
-
-[dependencies.postgres]
-
-git = "https://github.com/sfackler/rust-postgres.git"
+hal = "*"
+postgres = "*"
